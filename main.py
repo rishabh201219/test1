@@ -136,9 +136,13 @@ def predic():
       Origin =request.form['Origin']
       Origin = int(Origin)
       
-
-      vehicle_config = [[Cylinders, 6,8 ], [Displacement,160,165],[Horsepower, 130, 98], [Weight,3150 , 2600], [Acceleration,14, 16], [Model_Year,80,78 ], [Origin,2 ,1]]
-    
+      if origin==3: 
+          vehicle_config = [[Cylinders, 6,8 ], [Displacement,160,165],[Horsepower, 130, 98], [Weight,3150 , 2600], [Acceleration,14, 16], [Model_Year,80,78 ], [Origin,2 ,1]]
+      elif origin==2:
+          vehicle_config = [[Cylinders, 6,8 ], [Displacement,160,165],[Horsepower, 130, 98], [Weight,3150 , 2600], [Acceleration,14, 16], [Model_Year,80,78 ], [Origin,3 ,1]]
+      elif origin==1:
+          vehicle_config = [[Cylinders, 6,8 ], [Displacement,160,165],[Horsepower, 130, 98], [Weight,3150 , 2600], [Acceleration,14, 16], [Model_Year,80,78 ], [Origin,2 ,3]]
+            
       predictions = predict_mpg(vehicle_config, model)
       a,b,c=predictions
       return render_template('form1.html',prediction_text="miles per gallon of car1={}".format(a)) 
